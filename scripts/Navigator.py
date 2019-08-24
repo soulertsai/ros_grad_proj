@@ -3,12 +3,12 @@ import os
 import cv2
 import rospy
 import numpy as np
-import tensorflow as tf
+# import tensorflow as tf
 from std_msgs.msg import String
 from std_msgs.msg import Float32
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Twist
-from keras.models import load_model
+# from keras.models import load_model
 from cv_bridge import CvBridge, CvBridgeError
 
 SPEED = 2.5
@@ -23,8 +23,8 @@ classes = ['Box', 'Space', 'Sphere']
 IMAGE_WIDTH, IMAGE_HEIGHT = 200, 200
 
 bridge = CvBridge()
-model = load_model(os.path.join(os.path.dirname(__file__), "shape_classifier_le_net_5.h5"))
-graph = tf.get_default_graph()
+# model = load_model(os.path.join(os.path.dirname(__file__), "shape_classifier_le_net_5.h5"))
+# graph = tf.get_default_graph()
 
 def image_cb(data):	
 	cv_image = bridge.imgmsg_to_cv2(data, desired_encoding="passthrough")
@@ -32,30 +32,32 @@ def image_cb(data):
 
 	image = preprocess_image(cv_image)
 
-	global graph
-	with graph.as_default():
-		prediction = classes[np.squeeze(np.argmax(model.predict(image), axis=1))]
-		move(prediction)
+	# global graph
+	# with graph.as_default():
+	# 	prediction = classes[np.squeeze(np.argmax(model.predict(image), axis=1))]
+	# 	move(prediction)
+
+	move()
 		
 def preprocess_image(image):
 	resized_image = cv2.resize(image, (IMAGE_WIDTH, IMAGE_HEIGHT))
 	return np.resize(resized_image, (1, IMAGE_WIDTH, IMAGE_WIDTH, 3))
 
-def move(prediction):
-	print("[*] " + str(prediction) + " Detected.")
+def move():
+	# print("[*] " + str(prediction) + " Detected.")
 	velocity_publisher = rospy.Publisher("/cmd_vel", Twist, queue_size=10)
 
-	if prediction == classes[1]:
-		print("[*] Moving Straight...")
-		move_straight(velocity_publisher)
+	# if prediction == classes[1]:
+	print("[*] Moving Straight...")
+	move_straight(velocity_publisher)
 		
-	elif prediction == classes[0]:
-		print("[*] Stop...")
-		stop(velocity_publisher)
+	# elif prediction == classes[0]:
+	# 	print("[*] Stop...")
+	# 	stop(velocity_publisher)
 
-	elif prediction == classes[2]:
-		print("[*] Turning Right...")
-		turn_right(velocity_publisher)
+	# elif prediction == classes[2]:
+	# 	print("[*] Turning Right...")
+	# 	turn_right(velocity_publisher)
 
 def move_straight(velocity_publisher):
 	vel_msg = Twist()

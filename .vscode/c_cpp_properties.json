@@ -1,0 +1,35 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/soult/turtlebot_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/soult/turtlebot_ws/src/depthimage_to_laserscan/include/**",
+                "/home/soult/turtlebot_ws/src/kobuki_auto_docking/include/**",
+                "/home/soult/turtlebot_ws/src/kobuki_bumper2pc/include/**",
+                "/home/soult/turtlebot_ws/src/kobuki_controller_tutorial/include/**",
+                "/home/soult/turtlebot_ws/src/kobuki_desktop/kobuki_gazebo_plugins/include/**",
+                "/home/soult/turtlebot_ws/src/kobuki_keyop/include/**",
+                "/home/soult/turtlebot_ws/src/kobuki_node/include/**",
+                "/home/soult/turtlebot_ws/src/kobuki_random_walker/include/**",
+                "/home/soult/turtlebot_ws/src/kobuki_safety_controller/include/**",
+                "/home/soult/turtlebot_ws/src/robot_pose_ekf/include/**",
+                "/home/soult/turtlebot_ws/src/turtlebot_apps/turtlebot_actions/include/**",
+                "/home/soult/turtlebot_ws/src/kobuki_desktop/joystick_drivers/wiimote/include/**",
+                "/home/soult/turtlebot_ws/src/yocs_cmd_vel_mux/include/**",
+                "/home/soult/turtlebot_ws/src/yocs_controllers/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
