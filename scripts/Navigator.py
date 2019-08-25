@@ -50,6 +50,8 @@ def move():
 	# if prediction == classes[1]:
 	print("[*] Moving Straight...")
 	move_straight(velocity_publisher)
+	rospy.sleep(5)
+	stop(velocity_publisher)
 		
 	# elif prediction == classes[0]:
 	# 	print("[*] Stop...")
