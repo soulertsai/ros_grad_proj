@@ -66,8 +66,7 @@ def move_straight(velocity_publisher):
 	vel_msg.linear.z = 0
 	vel_msg.angular.x = 0
 	vel_msg.angular.y = 0
-	vel_msg.angular.z = 0
-
+	vel_msg.angular.z = 0.5
 	current_distance = 0
 	t0 = rospy.Time.now().to_sec()
 
